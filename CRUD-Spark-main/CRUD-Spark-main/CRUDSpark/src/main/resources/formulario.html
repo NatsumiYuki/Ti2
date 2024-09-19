@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Anime</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f0f6;
+        }
+
+        h1 {
+            color: #d5006d;
+        }
+
+        h2 {
+            color: #880e4f;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #d5006d;
+        }
+
+        input[type="text"], 
+        input[type="number"] {
+            width: 100%;
+            padding: 8px 0;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #d5006d;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c51162;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f4e4;
+            border: 1px solid #d4e6d0;
+            border-radius: 4px;
+            color: #2e8b57;
+        }
+
+        .error {
+            background-color: #f4e4e4;
+            border: 1px solid #e6d0d0;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Locadora de Anime</h1>
+    
+    <h2>Adicionar Anime</h2>
+    <form action='/animes' method='post'>
+        <label for="nome">Nome:</label>
+        <input type='text' id='nome' name='nome' required><br>
+        <label for="genero">Gênero:</label>
+        <input type='text' id='genero' name='genero' required><br>
+        <label for="autor">Autor:</label>
+        <input type='text' id='autor' name='autor' required><br>
+        <label for="ano">Ano:</label>
+        <input type='number' id='ano' name='ano' required><br>
+        <input type='submit' value='Adicionar Anime'>
+    </form>
+
+    <h2>Excluir Anime</h2>
+    <form action='/animes/delete' method='post'>
+        <label for="id-delete">ID:</label>
+        <input type='number' id='id-delete' name='id' required><br>
+        <input type='submit' value='Excluir Anime'>
+    </form>
+
+    <h2>Atualizar Anime</h2>
+    <form action='/animes/update' method='post'>
+        <label for="id-update">ID:</label>
+        <input type='number' id='id-update' name='id' required><br>
+        <label for="nome-update">Nome:</label>
+        <input type='text' id='nome-update' name='nome'><br>
+        <label for="genero-update">Gênero:</label>
+        <input type='text' id='genero-update' name='genero'><br>
+        <label for="autor-update">Autor:</label>
+        <input type='text' id='autor-update' name='autor'><br>
+        <label for="ano-update">Ano:</label>
+        <input type='number' id='ano-update' name='ano'><br>
+        <input type='submit' value='Atualizar Anime'>
+    </form>
+
+    <h2>Listar um Anime</h2>
+    <form action='/animes/get' method='post'>
+        <label for="id-get">ID:</label>
+        <input type='number' id='id-get' name='id' required><br>
+        <input type='submit' value='Listar Anime'>
+    </form>
+
+    <h2>Listar todos os Animes</h2>
+    <form action='/animes/all' method='post'>
+        <input type='submit' value='Listar Todos os Animes'>
+    </form>
+    
+</body>
+</html>
